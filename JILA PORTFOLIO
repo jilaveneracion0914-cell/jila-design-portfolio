@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jila Design — UI/UX & Graphic Designer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #F6F5F0;
+            color: #1C1C1C;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1200px, 90%);
+            margin: 0 auto;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            height: 82px;
+            background: #F6F5F0;
+            border-bottom: 1px solid #CFCFCF;
+        }
+
+        .header-inner {
+            height: 100%;
+            padding: 0 5vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: baseline;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .logo-jila {
+            font-family: "Cormorant Garamond", serif;
+            font-style: italic;
+            font-size: 34px;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .logo-design {
+            font-family: "Inter", sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            margin-left: 7px;
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            white-space: nowrap;
+        }
+
+        .desktop-nav a {
+            position: relative;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 8px 0;
+            transition: color 0.25s ease;
+        }
+
+        .desktop-nav a:hover,
+        .desktop-nav a.active {
+            color: #A89D8E;
+        }
+
+        .desktop-nav a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background: #A89D8E;
+        }
+
+        .hire-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 130px;
+            height: 46px;
+            padding: 0 20px;
+            background: #1C1C1C;
+            color: #FFFFFF;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: all 0.25s ease;
+        }
+
+        .hire-btn:hover {
+            background: #F2C4CE;
+            color: #1C1C1C;
+        }
+
+        .desktop-hire {
+            display: inline-flex;
+        }
+
+        .mobile-controls {
+            display: none;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .hamburger {
+            width: 44px;
+            height: 44px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: #1C1C1C;
+            display: block;
+            transition: 0.25s ease;
+        }
+
+
+        /* =========================
+           MOBILE MENU
+        ========================= */
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: min(100%, 380px);
+            height: 100vh;
+            background: #F6F5F0;
+            z-index: 10000;
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.3s ease;
+            box-shadow: -10px 0 30px rgba(28,28,28,0.08);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.open {
+            right: 0;
+        }
+
+        .menu-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #CFCFCF;
+        }
+
+        .menu-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 28px;
+            font-style: italic;
+        }
+
+        .close-menu {
+            width: 44px;
+            height: 44px;
+            border: none;
+            background: transparent;
+            font-size: 32px;
+            cursor: pointer;
+            color: #1C1C1C;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        .mobile-nav a {
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #CFCFCF;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .mobile-nav a:hover {
+            color: #A89D8E;
+        }
+
+        .mobile-hire {
+            width: 100%;
+            height: 48px;
+            margin-top: 24px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: calc(100vh - 82px);
+            display: flex;
+            align-items: center;
+            padding: 90px 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #A89D8E;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(58px, 6vw, 88px);
+            font-weight: 500;
+            line-height: 0.95;
+            max-width: 700px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 em {
+            color: #A89D8E;
+        }
+
+        .hero-text {
+            max-width: 550px;
+            color: #6B6B6B;
+            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            min-height: 48px;
+            padding: 0 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.25s ease;
+        }
+
+        .primary-btn {
+            background: #1C1C1C;
+            color: #FFFFFF;
+        }
+
+        .primary-btn:hover {
+            background: #F2C4CE;
+            color: #1C1C1C;
+        }
+
+        .secondary-btn {
+            border: 1px solid #1C1C1C;
+        }
+
+        .secondary-btn:hover {
+            background: #F2C4CE;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 570px;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .hero-image::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #F2C4CE;
+            border-radius: 50%;
+            bottom: -25px;
+            left: -25px;
+            z-index: -1;
+        }
+
+
+        /* =========================
+           SECTION DEFAULTS
+        ========================= */
+
+        section {
+            padding: 110px 0;
+        }
+
+        .section-header {
+            max-width: 650px;
+            margin-bottom: 55px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #A89D8E;
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(45px, 5vw, 68px);
+            font-weight: 500;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            color: #6B6B6B;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: #FFFFFF;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            align-items: center;
+            gap: 90px;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 560px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 16px;
+        }
+
+        .about-image::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 90px;
+            height: 90px;
+            border: 1px solid #A89D8E;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .about-image img {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-content h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(45px, 5vw, 70px);
+            font-weight: 500;
+            line-height: 1;
+            margin-bottom: 28px;
+        }
+
+        .about-content p {
+            color: #6B6B6B;
+            font-size: 15px;
+            line-height: 1.9;
+            margin-bottom: 18px;
+            max-width: 650px;
+        }
+
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #FFFFFF;
+            border: 1px solid #CFCFCF;
+            border-radius: 14px;
+            padding: 34px;
+            min-height: 240px;
+            transition: 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: #F2C4CE;
+        }
+
+        .service-number {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 20px;
+            color: #A89D8E;
+            margin-bottom: 45px;
+        }
+
+        .service-card h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #6B6B6B;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           PORTFOLIO
+        ========================= */
+
+        .portfolio {
+            background: #FFFFFF;
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 11px 18px;
+            border-radius: 30px;
+            border: 1px solid #CFCFCF;
+            background: transparent;
+            color: #1C1C1C;
+            cursor: pointer;
+            font-size: 13px;
+            transition: 0.25s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #1C1C1C;
+            color: #FFFFFF;
+            border-color: #1C1C1C;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .project-card {
+            background: #F6F5F0;
+            border: 1px solid #CFCFCF;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card.featured {
+            grid-column: span 2;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 330px;
+            overflow: hidden;
+        }
+
+        .project-card.featured .project-image {
+            height: 480px;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.04);
+        }
+
+        .project-content {
+            padding: 28px;
+        }
+
+        .project-category {
+            color: #A89D8E;
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .project-content h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 34px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: #6B6B6B;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            max-width: 650px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            font-size: 13px;
+            font-weight: 600;
+            border-bottom: 1px solid #1C1C1C;
+            padding-bottom: 4px;
+        }
+
+
+        /* =========================
+           PROCESS
+        ========================= */
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .process-card {
+            border-top: 1px solid #1C1C1C;
+            padding-top: 25px;
+        }
+
+        .process-number {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #A89D8E;
+            margin-bottom: 40px;
+        }
+
+        .process-card h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 31px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .process-card p {
+            color: #6B6B6B;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CREATIVE STUDIO
+        ========================= */
+
+        .studio {
+            background: #1C1C1C;
+            color: #FFFFFF;
+        }
+
+        .studio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .studio .section-label {
+            color: #F2C4CE;
+        }
+
+        .studio h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(50px, 6vw, 85px);
+            font-weight: 500;
+            line-height: 0.95;
+            margin-bottom: 25px;
+        }
+
+        .studio p {
+            color: #D0D0D0;
+            line-height: 1.9;
+            max-width: 550px;
+            margin-bottom: 28px;
+        }
+
+        .studio-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .studio .primary-btn {
+            background: #FFFFFF;
+            color: #1C1C1C;
+        }
+
+        .studio .primary-btn:hover {
+            background: #F2C4CE;
+        }
+
+
+        /* =========================
+           BLOG
+        ========================= */
+
+        .blog {
+            background: #FFFFFF;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .blog-card {
+            border: 1px solid #CFCFCF;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #F6F5F0;
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-category {
+            color: #A89D8E;
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .blog-content h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 29px;
+            line-height: 1.1;
+            font-weight: 500;
+            margin: 13px 0;
+        }
+
+        .blog-content p {
+            color: #6B6B6B;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact-inner {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .contact h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(55px, 7vw, 90px);
+            font-weight: 500;
+            line-height: 0.95;
+            margin-bottom: 25px;
+        }
+
+        .contact p {
+            color: #6B6B6B;
+            line-height: 1.8;
+            max-width: 550px;
+            margin: 0 auto 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #1C1C1C;
+            color: #FFFFFF;
+            padding: 70px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 55px;
+        }
+
+        .footer-logo {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 42px;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .footer-about {
+            color: #BDBDBD;
+            max-width: 300px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-column h4 {
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #F2C4CE;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #BDBDBD;
+            font-size: 13px;
+            margin-bottom: 12px;
+            transition: 0.2s ease;
+        }
+
+        .footer-column a:hover {
+            color: #FFFFFF;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444444;
+            padding-top: 25px;
+            color: #888888;
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        /* TABLET */
+
+        @media (max-width: 1199px) {
+
+            header {
+                height: 76px;
+            }
+
+            .header-inner {
+                padding: 0 32px;
+            }
+
+            .desktop-nav,
+            .desktop-hire {
+                display: none;
+            }
+
+            .mobile-controls {
+                display: flex;
+            }
+
+            .tablet-hire {
+                display: inline-flex;
+                width: 120px;
+                height: 44px;
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 80px 0;
+            }
+
+            .hero-grid {
+                gap: 45px;
+            }
+
+            .hero-image img {
+                height: 500px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 767px) {
+
+            header {
+                height: 68px;
+            }
+
+            .header-inner {
+                padding: 0 20px;
+            }
+
+            .logo-jila {
+                font-size: 28px;
+            }
+
+            .logo-design {
+                font-size: 9px;
+                letter-spacing: 3px;
+                margin-left: 5px;
+            }
+
+            .tablet-hire {
+                display: none;
+            }
+
+            .mobile-controls {
+                display: flex;
+            }
+
+            .mobile-menu {
+                width: 100%;
+                padding: 22px 20px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .hero {
+                padding: 65px 0 80px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+            .hero-text {
+                font-size: 14px;
+                line-height: 1.8;
+            }
+
+            .hero-image img {
+                height: 430px;
+            }
+
+            .hero-image::after {
+                width: 70px;
+                height: 70px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 55px;
+            }
+
+            .about-image img {
+                height: 450px;
+            }
+
+            .about-content h2 {
+                font-size: 50px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card.featured {
+                grid-column: span 1;
+            }
+
+            .project-image,
+            .project-card.featured .project-image {
+                height: 280px;
+            }
+
+            .project-content h3 {
+                font-size: 30px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .studio-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .studio-image img {
+                height: 400px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact h2 {
+                font-size: 58px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .contact-links a {
+                width: 100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+
+
+        /* SMALL MOBILE */
+
+        @media (max-width: 380px) {
+
+            .logo-jila {
+                font-size: 26px;
+            }
+
+            .logo-design {
+                font-size: 8px;
+                letter-spacing: 2px;
+            }
+
+            .hero h1 {
+                font-size: 51px;
+            }
+
+            .section-title {
+                font-size: 47px;
+            }
+
+            .about-content h2 {
+                font-size: 47px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons a {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="header-inner">
+
+        <a href="#home" class="logo">
+            <span class="logo-jila">Jila</span>
+            <span class="logo-design">DESIGN</span>
+        </a>
+
+
+        <!-- DESKTOP NAV -->
+
+        <nav class="desktop-nav">
+
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#services">Services</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+
+        <!-- DESKTOP HIRE -->
+
+        <a
+            class="hire-btn desktop-hire"
+            href="https://www.facebook.com/share/1Cg9HWj9qm/"
+            target="_blank"
+            rel="noopener"
+        >
+            Hire Me →
+        </a>
+
+
+        <!-- TABLET / MOBILE -->
+
+        <div class="mobile-controls">
+
+            <a
+                class="hire-btn tablet-hire"
+                href="https://www.facebook.com/share/1Cg9HWj9qm/"
+                target="_blank"
+                rel="noopener"
+            >
+                Hire Me →
+            </a>
+
+            <button
+                class="hamburger"
+                id="openMenu"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ==========================================
+     MOBILE MENU
+========================================== -->
+
+<aside class="mobile-menu" id="mobileMenu">
+
+    <div class="menu-top">
+
+        <div class="menu-title">
+            Jila Design
+        </div>
+
+        <button
+            class="close-menu"
+            id="closeMenu"
+            aria-label="Close navigation menu"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <nav class="mobile-nav">
+
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+
+    <a
+        class="hire-btn mobile-hire"
+        href="https://www.facebook.com/share/1Cg9HWj9qm/"
+        target="_blank"
+        rel="noopener"
+    >
+        Hire Me →
+    </a>
+
+</aside>
+
+
+<!-- ==========================================
+     HERO
+========================================== -->
+
+<main id="home">
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+
+        <div class="hero-content">
+
+            <span class="eyebrow">
+                HELLO, I'M JILA
+            </span>
+
+            <h1>
+                Creative Design,
+                <em>Made With Purpose.</em>
+            </h1>
+
+            <p class="hero-text">
+                I'm Jila, a student and aspiring freelance designer
+                passionate about creating thoughtful digital experiences,
+                user interfaces, websites, wireframes, and visual designs.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#portfolio" class="primary-btn">
+                    View My Work →
+                </a>
+
+                <a
+                    href="https://www.facebook.com/share/1Cg9HWj9qm/"
+                    target="_blank"
+                    rel="noopener"
+                    class="secondary-btn"
+                >
+                    Hire Me →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=85"
+                alt="Minimal creative workspace"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     ABOUT
+========================================== -->
+
+<section class="about" id="about">
+
+    <div class="container about-grid">
+
+
+        <!-- YOUR PROFILE PHOTO -->
+        <div class="about-image">
+
+            <img
+                src="profile pic.jpg"
+                alt="Jila Design Profile Picture"
+            >
+
+        </div>
+
+
+        <div class="about-content">
+
+            <span class="section-label">
+                ABOUT ME
+            </span>
+
+            <h2>
+                Turning Ideas Into Thoughtful Designs.
+            </h2>
+
+            <p>
+                I'm Jila, a student designer interested in UI/UX design,
+                graphic design, web design, branding, and creative digital
+                projects.
+            </p>
+
+            <p>
+                I enjoy exploring different design styles, creating visual
+                concepts, and turning ideas into organized and meaningful
+                designs.
+            </p>
+
+            <p>
+                I'm continuously developing my skills through academic
+                projects, personal projects, design exercises, and
+                hands-on experimentation.
+            </p>
+
+            <a href="#contact" class="primary-btn">
+                Let's Work Together →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     SERVICES
+========================================== -->
+
+<section id="services">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                WHAT I DO
+            </span>
+
+            <h2 class="section-title">
+                Design That Connects Ideas With People.
+            </h2>
+
+            <p class="section-description">
+                I create thoughtful visual and digital experiences
+                through design, planning, and creative problem solving.
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <article class="service-card">
+
+                <div class="service-number">01</div>
+
+                <h3>UI / Web Design</h3>
+
+                <p>
+                    Clean, organized, and visually engaging digital
+                    interfaces and website layouts.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-number">02</div>
+
+                <h3>UX Design</h3>
+
+                <p>
+                    Exploring user needs, structure, navigation,
+                    and usability.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-number">03</div>
+
+                <h3>Wireframing</h3>
+
+                <p>
+                    Planning website and interface structures before
+                    moving into visual design.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-number">04</div>
+
+                <h3>Sitemap Planning</h3>
+
+                <p>
+                    Organizing pages, content, and navigation into
+                    logical website structures.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-number">05</div>
+
+                <h3>Graphic Design</h3>
+
+                <p>
+                    Creating visual content, promotional graphics,
+                    layouts, and digital artwork.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-number">06</div>
+
+                <h3>Brand Identity</h3>
+
+                <p>
+                    Exploring visual identities through typography,
+                    color, logos, and consistent design systems.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     PORTFOLIO
+========================================== -->
+
+<section class="portfolio" id="portfolio">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                SELECTED WORK
+            </span>
+
+            <h2 class="section-title">
+                A Collection of My Creative Projects.
+            </h2>
+
+            <p class="section-description">
+                Explore my work across UI and web design, wireframing,
+                UX planning, graphic design, branding, and website projects.
+            </p>
+
+        </div>
+
+
+        <div class="filters">
+
+            <button class="filter-btn active" data-filter="all">
+                All
+            </button>
+
+            <button class="filter-btn" data-filter="web">
+                Web Design
+            </button>
+
+            <button class="filter-btn" data-filter="ui">
+                UI/UX
+            </button>
+
+            <button class="filter-btn" data-filter="graphic">
+                Graphic Design
+            </button>
+
+            <button class="filter-btn" data-filter="ux">
+                UX Planning
+            </button>
+
+            <button class="filter-btn" data-filter="branding">
+                Branding
+            </button>
+
+        </div>
+
+
+        <div class="portfolio-grid">
+
+
+            <!-- DRIP CAFE -->
+
+            <article class="project-card featured" data-category="web">
+
+                <div class="project-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=85"
+                        alt="Modern coffee shop interior"
+                    >
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        WEB DESIGN
+                    </div>
+
+                    <h3>
+                        Drip Café — Dingalan
+                    </h3>
+
+                    <p>
+                        A café website project created to explore modern
+                        web design, content organization, visual hierarchy,
+                        navigation, and website presentation.
+                    </p>
+
+                    <a
+                        href="https://jvener.my.canva.site/drip-cafe-dingalan"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link"
+                    >
+                        View Website →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- UI 01 -->
+
+            <article class="project-card" data-category="ui">
+
+                <div class="project-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1000&q=85"
+                        alt="UI design workspace"
+                    >
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        UI / WEB DESIGN
+                    </div>
+
+                    <h3>
+                        UI/Web Design Project 01
+                    </h3>
+
+                    <p>
+                        An interface design project exploring layout,
+                        typography, visual hierarchy, and digital presentation.
+                    </p>
+
+                    <a
+                        href="https://canva.link/tq7ni1kc3p9fixn"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link"
+                    >
+                        View Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- UI 02 -->
+
+            <article class="project-card" data-category="ui">
+
+                <div class="project-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1000&q=85"
+                        alt="Modern website interface"
+                    >
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        UI / WEB DESIGN
+                    </div>
+
+                    <h3>
+                        UI/Web Design Project 02
+                    </h3>
+
+                    <p>
+                        A digital design project exploring interface
+                        composition, typography, layout structure,
+                        and modern web presentation.
+                    </p>
+
+                    <a
+                        href="https://canva.link/ts1v6hr5a7ks4ya"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link"
+                    >
+                        View Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- WIREFRAME -->
+
+            <article class="project-card" data-category="ux">
+
+                <div class="project-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1553484771-047a44eee27b?auto=format&fit=crop&w=1000&q=85"
+                        alt="Planning and wireframe workspace"
+                    >
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        WIREFRAME / UX
+                    </div>
+
+                    <h3>
+                        Website Wireframe
+                    </h3>
+
+                    <p>
+                        A wireframing project focused on website structure,
+                        content hierarchy, and layout planning.
+                    </p>
+
+                    <a
+                        href="https://canva.link/lwzd959kb2vk5hd"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link"
+                    >
+                        View Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- JILA CREATIVE STUDIO -->
+
+            <article class="project-card" data-category="branding">
+
+                <div class="project-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=85"
+                        alt="Creative studio workspace"
+                    >
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        PERSONAL BRAND
+                    </div>
+
+                    <h3>
+                        Jila Creative Studio
+                    </h3>
+
+                    <p>
+                        A personal creative studio concept exploring
+                        branding, design services, and visual direction.
+                    </p>
+
+                    <a
+                        href="https://canva.link/4qxmlnpywrnompr"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link"
+                    >
+                        Explore Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- GRAPHIC DESIGN 01 -->
+
+            <article class="project-card" data-category="graphic">
+
+                <div class="project-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1000&q=85"
+                        alt="Graphic design materials"
+                    >
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        GRAPHIC DESIGN
+                    </div>
+
+                    <h3>
+                        Graphic Design Project 01
+                    </h3>
+
+                    <p>
+                        A graphic design project exploring composition,
+                        typography, color, and visual communication.
+                    </p>
+
+                    <a
+                        href="https://canva.link/nk6qgroagy8a6ov"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link"
+                    >
+                        View Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- GRAPHIC DESIGN 02 -->
+
+            <article class="project-card" data-category="graphic">
+
+                <div class="project-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1000&q=85"
+                        alt="Creative graphic design project"
+                    >
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        GRAPHIC DESIGN
+                    </div>
+
+                    <h3>
+                        Graphic Design Project 02
+                    </h3>
+
+                    <p>
+                        A collection of graphic design work exploring
+                        typography, layout, visual composition, and direction.
+                    </p>
+
+                    <a
+                        href="https://canva.link/584a0huj9e4ypda"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link"
+                    >
+                        View Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- GRAPHIC DESIGN 03 -->
+
+            <article class="project-card" data-category="graphic">
+
+                <div class="project-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1561070791-36c11767b26a?auto=format&fit=crop&w=1000&q=85"
+                        alt="Brand design materials"
+                    >
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        GRAPHIC DESIGN
+                    </div>
+
+                    <h3>
+                        Graphic Design Project 03
+                    </h3>
+
+                    <p>
+                        A creative graphic design project demonstrating
+                        experimentation with hierarchy and presentation.
+                    </p>
+
+                    <a
+                        href="https://canva.link/7hd5rj56fw6e4ev"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link"
+                    >
+                        View Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- SITEMAP -->
+
+            <article class="project-card" data-category="ux">
+
+                <div class="project-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1000&q=85"
+                        alt="Website planning workspace"
+                    >
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        UX PLANNING
+                    </div>
+
+                    <h3>
+                        Website Sitemap
+                    </h3>
+
+                    <p>
+                        A sitemap project demonstrating how website pages
+                        and content can be organized into a clear structure.
+                    </p>
+
+                    <a
+                        href="https://canva.link/ga6ppcj1smsmpnk"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link"
+                    >
+                        View Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- SOFIA SALON -->
+
+            <article class="project-card" data-category="web">
+
+                <div class="project-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=85"
+                        alt="Modern salon interior"
+                    >
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        WEB DESIGN
+                    </div>
+
+                    <h3>
+                        Sofia Salon Sample Website
+                    </h3>
+
+                    <p>
+                        A sample salon website project exploring website
+                        structure, service organization, navigation, and design.
+                    </p>
+
+                    <a
+                        href="https://sofiasalonsampleweb.lovable.app/"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link"
+                    >
+                        View Website →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- WEB DESIGN ASSIGNMENT -->
+
+            <article class="project-card" data-category="web">
+
+                <div class="project-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1000&q=85"
+                        alt="Website design on laptop"
+                    >
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        WEB DESIGN
+                    </div>
+
+                    <h3>
+                        Web Design Assignment
+                    </h3>
+
+                    <p>
+                        An academic website design exercise focused on
+                        structure, navigation, layout, and presentation.
+                    </p>
+
+                    <a
+                        href="https://webdesignappassignmentpurposesonly.lovable.app/"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link"
+                    >
+                        View Website →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     DESIGN PROCESS
+========================================== -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                MY PROCESS
+            </span>
+
+            <h2 class="section-title">
+                From Idea To Design.
+            </h2>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <article class="process-card">
+
+                <div class="process-number">
+                    01 — DISCOVER
+                </div>
+
+                <h3>
+                    Understand
+                </h3>
+
+                <p>
+                    Understand the project's purpose, audience,
+                    goals, and requirements.
+                </p>
+
+            </article>
+
+
+            <article class="process-card">
+
+                <div class="process-number">
+                    02 — PLAN
+                </div>
+
+                <h3>
+                    Organize
+                </h3>
+
+                <p>
+                    Organize content, structure, navigation,
+                    and visual direction.
+                </p>
+
+            </article>
+
+
+            <article class="process-card">
+
+                <div class="process-number">
+                    03 — DESIGN
+                </div>
+
+                <h3>
+                    Create
+                </h3>
+
+                <p>
+                    Create layouts, interfaces, typography,
+                    colors, and visual elements.
+                </p>
+
+            </article>
+
+
+            <article class="process-card">
+
+                <div class="process-number">
+                    04 — REFINE
+                </div>
+
+                <h3>
+                    Improve
+                </h3>
+
+                <p>
+                    Review, improve, and prepare the final design.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     JILA CREATIVE STUDIO
+========================================== -->
+
+<section class="studio">
+
+    <div class="container studio-grid">
+
+
+        <div>
+
+            <span class="section-label">
+                PERSONAL BRAND
+            </span>
+
+            <h2>
+                Jila Creative Studio
+            </h2>
+
+            <p>
+                Jila Creative Studio is my personal design concept
+                where I explore branding, graphic design, UI/UX,
+                web design, and digital content.
+            </p>
+
+            <a
+                href="https://canva.link/4qxmlnpywrnompr"
+                target="_blank"
+                rel="noopener"
+                class="primary-btn"
+            >
+                Explore Studio →
+            </a>
+
+        </div>
+
+
+        <div class="studio-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=1200&q=85"
+                alt="Minimal creative studio"
+            >
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     BLOG
+========================================== -->
+
+<section class="blog" id="blog">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                FROM THE BLOG
+            </span>
+
+            <h2 class="section-title">
+                Notes, Ideas & Inspiration.
+            </h2>
+
+            <p class="section-description">
+                A space for design tips, things I'm learning,
+                creative experiments, and lessons from my design journey.
+            </p>
+
+        </div>
+
+
+        <div class="blog-grid">
+
+
+            <article class="blog-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=900&q=85"
+                    alt="Design workspace"
+                >
+
+                <div class="blog-content">
+
+                    <span class="blog-category">
+                        UI / UX
+                    </span>
+
+                    <h3>
+                        What Is The Difference Between UI And UX?
+                    </h3>
+
+                    <p>
+                        Exploring the difference between interface
+                        design and user experience.
+                    </p>
+
+                    <a href="#" class="project-link">
+                        Read Article →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="blog-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=900&q=85"
+                    alt="Website design"
+                >
+
+                <div class="blog-content">
+
+                    <span class="blog-category">
+                        WEB DESIGN
+                    </span>
+
+                    <h3>
+                        How I Create A Website Wireframe
+                    </h3>
+
+                    <p>
+                        A simple look into the planning process
+                        behind website structure.
+                    </p>
+
+                    <a href="#" class="project-link">
+                        Read Article →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="blog-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=900&q=85"
+                    alt="Creative designer workspace"
+                >
+
+                <div class="blog-content">
+
+                    <span class="blog-category">
+                        DESIGN JOURNEY
+                    </span>
+
+                    <h3>
+                        What I Learned Creating My Portfolio
+                    </h3>
+
+                    <p>
+                        Lessons and discoveries from building my
+                        personal design portfolio.
+                    </p>
+
+                    <a href="#" class="project-link">
+                        Read Article →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     CONTACT
+========================================== -->
+
+<section class="contact" id="contact">
+
+    <div class="container contact-inner">
+
+        <span class="section-label">
+            GET IN TOUCH
+        </span>
+
+        <h2>
+            Let's Create Something Together.
+        </h2>
+
+        <p>
+            Have a design idea or project in mind?
+            Feel free to reach out and tell me about it.
+        </p>
+
+
+        <div class="contact-links">
+
+            <a
+                href="https://www.facebook.com/share/1Cg9HWj9qm/"
+                target="_blank"
+                rel="noopener"
+                class="primary-btn"
+            >
+                Message Me →
+            </a>
+
+            <a
+                href="mailto:jilalapuzveneracion@gmail.com"
+                class="secondary-btn"
+            >
+                Email Me →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <div class="footer-logo">
+                    Jila Design
+                </div>
+
+                <p class="footer-about">
+                    Designing with passion, creating with purpose.
+                    UI/UX, web design, graphic design, and creative
+                    digital experiences.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    NAVIGATION
+                </h4>
+
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#services">Services</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    SERVICES
+                </h4>
+
+                <a href="#services">UI/UX Design</a>
+                <a href="#services">Web Design</a>
+                <a href="#services">Graphic Design</a>
+                <a href="#services">Brand Identity</a>
+                <a href="#services">Canva Design</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    CONTACT
+                </h4>
+
+                <a
+                    href="https://www.facebook.com/share/1Cg9HWj9qm/"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Facebook
+                </a>
+
+                <a href="mailto:jilalapuzveneracion@gmail.com">
+                    Email
+                </a>
+
+                <a href="mailto:jilalapuzveneracion@gmail.com">
+                    jilalapuzveneracion@gmail.com
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Jila Design. All Rights Reserved.
+            </span>
+
+            <span>
+                Designing with passion, creating with purpose.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script>
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const mobileMenu = document.getElementById("mobileMenu");
+    const openMenu = document.getElementById("openMenu");
+    const closeMenu = document.getElementById("closeMenu");
+
+    openMenu.addEventListener("click", function () {
+
+        mobileMenu.classList.add("open");
+
+        openMenu.setAttribute("aria-expanded", "true");
+
+    });
+
+
+    closeMenu.addEventListener("click", function () {
+
+        mobileMenu.classList.remove("open");
+
+        openMenu.setAttribute("aria-expanded", "false");
+
+    });
+
+
+    /* CLOSE MENU WHEN LINK IS CLICKED */
+
+    document.querySelectorAll(".mobile-nav a").forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            mobileMenu.classList.remove("open");
+
+            openMenu.setAttribute("aria-expanded", "false");
+
+        });
+
+    });
+
+
+    /* =========================
+       PORTFOLIO FILTER
+    ========================= */
+
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+
+
+    filterButtons.forEach(function(button) {
+
+        button.addEventListener("click", function() {
+
+            const filter = button.getAttribute("data-filter");
+
+
+            filterButtons.forEach(function(btn) {
+
+                btn.classList.remove("active");
+
+            });
+
+
+            button.classList.add("active");
+
+
+            projectCards.forEach(function(card) {
+
+                const category = card.getAttribute("data-category");
+
+
+                if (filter === "all" || category === filter) {
+
+                    card.style.display = "block";
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+    });
+
+
+    /* =========================
+       ACTIVE NAVIGATION
+    ========================= */
+
+    const sections = document.querySelectorAll("main section[id]");
+    const navLinks = document.querySelectorAll(".desktop-nav a");
+
+
+    window.addEventListener("scroll", function() {
+
+        let current = "";
+
+        sections.forEach(function(section) {
+
+            const sectionTop = section.offsetTop - 150;
+
+            if (window.scrollY >= sectionTop) {
+
+                current = section.getAttribute("id");
+
+            }
+
+        });
+
+
+        navLinks.forEach(function(link) {
+
+            link.classList.remove("active");
+
+            if (link.getAttribute("href") === "#" + current) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    });
+
+
+</script>
+
+
+</body>
+</html>
