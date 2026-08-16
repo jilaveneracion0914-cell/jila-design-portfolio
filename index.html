@@ -13,10 +13,6 @@
 
 <style>
 
-/* =========================================================
-   RESET
-========================================================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -49,10 +45,6 @@ button {
     cursor: pointer;
 }
 
-/* =========================================================
-   VARIABLES
-========================================================= */
-
 :root {
     --black: #1C1C1C;
     --taupe: #A89D8E;
@@ -62,98 +54,6 @@ button {
     --gray: #CFCFCF;
     --body: #6B6B6B;
 }
-
-/* =========================================================
-   SCROLL PROGRESS
-========================================================= */
-
-.scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background: var(--pink);
-    z-index: 99999;
-    transition: width .05s linear;
-}
-
-/* =========================================================
-   CURSOR GLOW
-========================================================= */
-
-.cursor-glow {
-    position: fixed;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    pointer-events: none;
-    background: radial-gradient(
-        circle,
-        rgba(242,196,206,.22) 0%,
-        rgba(242,196,206,.08) 35%,
-        transparent 70%
-    );
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    opacity: 0;
-    transition: opacity .3s ease;
-}
-
-/* =========================================================
-   FLOATING DECORATIONS
-========================================================= */
-
-.decor {
-    position: absolute;
-    pointer-events: none;
-    border-radius: 50%;
-    filter: blur(1px);
-    opacity: .5;
-    z-index: 0;
-}
-
-.decor-one {
-    width: 110px;
-    height: 110px;
-    background: var(--pink);
-    top: 15%;
-    right: 5%;
-    animation: floatOne 7s ease-in-out infinite;
-}
-
-.decor-two {
-    width: 70px;
-    height: 70px;
-    border: 1px solid var(--taupe);
-    bottom: 10%;
-    left: 4%;
-    animation: floatTwo 6s ease-in-out infinite;
-}
-
-@keyframes floatOne {
-    0%,100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-20px) rotate(15deg);
-    }
-}
-
-@keyframes floatTwo {
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(18px);
-    }
-}
-
-/* =========================================================
-   CONTAINER
-========================================================= */
 
 .container {
     width: min(1200px, calc(100% - 40px));
@@ -182,8 +82,6 @@ header {
     gap: 25px;
 }
 
-/* LOGO */
-
 .logo {
     display: flex;
     align-items: baseline;
@@ -196,11 +94,6 @@ header {
     font-size: 38px;
     line-height: 1;
     color: var(--black);
-    transition: transform .3s ease;
-}
-
-.logo:hover .logo-jila {
-    transform: rotate(-3deg) scale(1.04);
 }
 
 .logo-design {
@@ -210,8 +103,6 @@ header {
     letter-spacing: 4px;
     margin-left: 5px;
 }
-
-/* NAVIGATION */
 
 .desktop-nav {
     display: flex;
@@ -245,8 +136,6 @@ header {
     background: var(--taupe);
 }
 
-/* HEADER BUTTON */
-
 .header-right {
     display: flex;
     justify-content: flex-end;
@@ -272,10 +161,7 @@ header {
 .hire-btn:hover {
     background: var(--pink);
     color: var(--black);
-    transform: translateY(-3px);
 }
-
-/* MOBILE MENU BUTTON */
 
 .menu-btn {
     display: none;
@@ -294,15 +180,6 @@ header {
     width: 23px;
     height: 2px;
     background: var(--black);
-    transition: .3s ease;
-}
-
-.menu-btn:hover span:nth-child(1) {
-    transform: translateX(4px);
-}
-
-.menu-btn:hover span:nth-child(3) {
-    transform: translateX(-4px);
 }
 
 /* =========================================================
@@ -340,11 +217,6 @@ header {
     background: transparent;
     font-size: 30px;
     color: var(--black);
-    transition: transform .3s ease;
-}
-
-.close-btn:hover {
-    transform: rotate(90deg);
 }
 
 .mobile-nav {
@@ -359,12 +231,6 @@ header {
     border-bottom: 1px solid var(--gray);
     font-size: 17px;
     text-decoration: none;
-    transition: padding-left .25s ease;
-}
-
-.mobile-nav a:hover {
-    padding-left: 8px;
-    color: var(--taupe);
 }
 
 .mobile-hire {
@@ -382,8 +248,6 @@ header {
     display: flex;
     align-items: center;
     padding: 100px 0;
-    position: relative;
-    overflow: hidden;
 }
 
 .hero-grid {
@@ -391,8 +255,6 @@ header {
     grid-template-columns: 1.05fr .95fr;
     gap: 80px;
     align-items: center;
-    position: relative;
-    z-index: 2;
 }
 
 .eyebrow {
@@ -448,7 +310,6 @@ header {
 .primary-btn:hover {
     background: var(--pink);
     color: var(--black);
-    transform: translateY(-3px);
 }
 
 .secondary-btn {
@@ -459,10 +320,7 @@ header {
 
 .secondary-btn:hover {
     background: var(--pink);
-    transform: translateY(-3px);
 }
-
-/* HERO VISUAL */
 
 .hero-visual {
     position: relative;
@@ -473,11 +331,6 @@ header {
     height: 580px;
     object-fit: cover;
     border-radius: 18px;
-    transition: transform .6s cubic-bezier(.2,.8,.2,1);
-}
-
-.hero-visual:hover .hero-image {
-    transform: scale(1.025);
 }
 
 /* =========================================================
@@ -536,12 +389,6 @@ section {
     object-fit: cover;
     border-radius: 18px;
     background: #eee;
-    transition: transform .5s ease, box-shadow .5s ease;
-}
-
-.about-photo:hover {
-    transform: translateY(-8px) rotate(-1deg);
-    box-shadow: 15px 15px 0 var(--pink);
 }
 
 .about-content h2 {
@@ -561,18 +408,10 @@ section {
 .about-tag {
     display: inline-block;
     margin-top: 15px;
-    margin-right: 6px;
     padding: 9px 14px;
     border: 1px solid var(--gray);
     border-radius: 30px;
     font-size: 12px;
-    transition: .25s ease;
-}
-
-.about-tag:hover {
-    background: var(--pink);
-    border-color: var(--pink);
-    transform: translateY(-3px);
 }
 
 /* =========================================================
@@ -590,13 +429,12 @@ section {
     border: 1px solid var(--gray);
     border-radius: 14px;
     padding: 35px;
-    transition: transform .35s ease, border-color .25s ease, box-shadow .35s ease;
+    transition: transform .25s ease, border-color .25s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
     border-color: var(--pink);
-    box-shadow: 0 18px 40px rgba(28,28,28,.07);
 }
 
 .service-number {
@@ -641,7 +479,7 @@ section {
     border-radius: 30px;
     font-size: 13px;
     color: var(--black);
-    transition: .25s ease;
+    transition: .2s ease;
 }
 
 .filter-btn:hover,
@@ -649,7 +487,6 @@ section {
     background: var(--black);
     color: var(--white);
     border-color: var(--black);
-    transform: translateY(-2px);
 }
 
 .portfolio-grid {
@@ -663,15 +500,11 @@ section {
     border: 1px solid var(--gray);
     border-radius: 16px;
     overflow: hidden;
-    transition:
-        transform .4s cubic-bezier(.2,.8,.2,1),
-        box-shadow .4s ease;
-    transform-style: preserve-3d;
+    transition: transform .25s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-9px);
-    box-shadow: 0 20px 45px rgba(28,28,28,.09);
+    transform: translateY(-5px);
 }
 
 .project-card.featured {
@@ -682,11 +515,6 @@ section {
     width: 100%;
     height: 340px;
     object-fit: cover;
-    transition: transform .6s ease;
-}
-
-.project-card:hover .project-image {
-    transform: scale(1.035);
 }
 
 .featured .project-image {
@@ -719,19 +547,30 @@ section {
     margin-bottom: 20px;
 }
 
+/* UPDATED PROJECT LINKS */
+
 .project-link {
     display: inline-block;
     font-size: 13px;
     font-weight: 600;
     text-decoration: none;
-    border-bottom: 1px solid var(--black);
+    border-bottom: none;
     padding-bottom: 3px;
-    transition: .25s ease;
+    color: rgba(28, 28, 28, 0.62);
+    transition:
+        color .25s ease,
+        opacity .25s ease,
+        transform .25s ease;
 }
 
 .project-link:hover {
-    color: var(--taupe);
-    transform: translateX(4px);
+    color: var(--pink);
+    opacity: 1;
+    transform: translateX(2px);
+}
+
+.project-link:active {
+    color: var(--pink);
 }
 
 /* =========================================================
@@ -747,11 +586,6 @@ section {
 .process-item {
     border-top: 1px solid var(--black);
     padding-top: 25px;
-    transition: transform .3s ease;
-}
-
-.process-item:hover {
-    transform: translateY(-6px);
 }
 
 .process-number {
@@ -781,26 +615,6 @@ section {
 .studio {
     background: var(--black);
     color: var(--white);
-    position: relative;
-    overflow: hidden;
-}
-
-.studio::before {
-    content: "";
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    border: 1px solid rgba(242,196,206,.2);
-    right: -100px;
-    top: -100px;
-    animation: studioFloat 8s ease-in-out infinite;
-}
-
-@keyframes studioFloat {
-    50% {
-        transform: translate(-30px, 30px) scale(1.1);
-    }
 }
 
 .studio .section-label {
@@ -834,14 +648,6 @@ section {
     padding: 10px 15px;
     border-radius: 30px;
     font-size: 12px;
-    transition: .25s ease;
-}
-
-.studio-tag:hover {
-    background: var(--pink);
-    color: var(--black);
-    border-color: var(--pink);
-    transform: translateY(-3px);
 }
 
 /* =========================================================
@@ -863,13 +669,6 @@ section {
     border: 1px solid var(--gray);
     border-radius: 30px;
     font-size: 13px;
-    transition: .25s ease;
-}
-
-.skill:hover {
-    background: var(--pink);
-    border-color: var(--pink);
-    transform: translateY(-3px);
 }
 
 /* =========================================================
@@ -885,11 +684,6 @@ section {
 .blog-card {
     border-top: 1px solid var(--black);
     padding-top: 25px;
-    transition: transform .3s ease;
-}
-
-.blog-card:hover {
-    transform: translateY(-6px);
 }
 
 .blog-number {
@@ -925,11 +719,6 @@ section {
     border: 1px solid var(--gray);
     border-radius: 18px;
     padding: 70px;
-    transition: box-shadow .4s ease;
-}
-
-.contact-box:hover {
-    box-shadow: 0 25px 60px rgba(28,28,28,.08);
 }
 
 .contact-box h2 {
@@ -959,12 +748,6 @@ section {
     border: 1px solid var(--gray);
     border-radius: 12px;
     padding: 25px;
-    transition: .3s ease;
-}
-
-.contact-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--pink);
 }
 
 .contact-card span {
@@ -1032,40 +815,24 @@ footer {
     margin-bottom: 12px;
     font-size: 14px;
     text-decoration: none;
-    transition: .2s ease;
 }
 
 .footer-column a:hover {
     color: var(--pink);
-    transform: translateX(4px);
 }
+
+/* UPDATED FOOTER COPYRIGHT */
 
 .footer-bottom {
     border-top: 1px solid #3c3c3c;
     padding-top: 25px;
     color: #888;
     font-size: 12px;
+    text-align: center;
 }
 
 /* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(35px);
-    transition:
-        opacity .8s ease,
-        transform .8s cubic-bezier(.2,.8,.2,1);
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =========================================================
-   RESPONSIVE — TABLET
+   TABLET
 ========================================================= */
 
 @media (max-width: 1199px) {
@@ -1128,14 +895,10 @@ footer {
 }
 
 /* =========================================================
-   RESPONSIVE — MOBILE
+   MOBILE
 ========================================================= */
 
 @media (max-width: 767px) {
-
-    .cursor-glow {
-        display: none;
-    }
 
     .container {
         width: calc(100% - 40px);
@@ -1281,1153 +1044,1114 @@ footer {
 
 <body>
 
-<!-- SCROLL PROGRESS -->
-<div class="scroll-progress" id="scrollProgress"></div>
-
-<!-- CURSOR EFFECT -->
-<div class="cursor-glow" id="cursorGlow"></div>
-
-<!-- =======================================================
-     HEADER
-======================================================== -->
+<!-- HEADER -->
 
 <header>
 
-<div class="container header-inner">
+    <div class="container header-inner">
 
-<a href="#home" class="logo">
-<span class="logo-jila">Jila</span>
-<span class="logo-design">DESIGN</span>
-</a>
+        <a href="#home" class="logo">
+            <span class="logo-jila">Jila</span>
+            <span class="logo-design">DESIGN</span>
+        </a>
 
-<nav class="desktop-nav">
+        <nav class="desktop-nav">
 
-<a href="#home" class="active">Home</a>
-<a href="#about">About</a>
-<a href="#portfolio">Portfolio</a>
-<a href="#services">Services</a>
-<a href="#blog">Blog</a>
-<a href="#contact">Contact</a>
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#services">Services</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
 
-</nav>
+        </nav>
 
-<div class="header-right">
+        <div class="header-right">
 
-<a
-href="https://www.facebook.com/jilalapuzveneracion/"
-target="_blank"
-class="hire-btn"
->
-Hire Me
-</a>
+            <a
+                href="https://www.facebook.com/jilalapuzveneracion/"
+                target="_blank"
+                class="hire-btn"
+            >
+                Hire Me
+            </a>
 
-<button
-class="menu-btn"
-id="openMenu"
-aria-label="Open navigation menu"
-aria-expanded="false"
->
-<span></span>
-<span></span>
-<span></span>
-</button>
+            <button
+                class="menu-btn"
+                id="openMenu"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </header>
 
-<!-- =======================================================
-     MOBILE MENU
-======================================================== -->
+
+<!-- MOBILE MENU -->
 
 <div class="mobile-menu" id="mobileMenu">
 
-<div class="mobile-menu-top">
+    <div class="mobile-menu-top">
 
-<button
-class="close-btn"
-id="closeMenu"
-aria-label="Close navigation menu"
->
-×
-</button>
+        <button
+            class="close-btn"
+            id="closeMenu"
+            aria-label="Close navigation menu"
+        >
+            ×
+        </button>
+
+    </div>
+
+    <nav class="mobile-nav">
+
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+    <a
+        href="https://www.facebook.com/jilalapuzveneracion/"
+        target="_blank"
+        class="hire-btn mobile-hire"
+    >
+        Hire Me
+    </a>
 
 </div>
 
-<nav class="mobile-nav">
-
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#portfolio">Portfolio</a>
-<a href="#services">Services</a>
-<a href="#blog">Blog</a>
-<a href="#contact">Contact</a>
-
-</nav>
-
-<a
-href="https://www.facebook.com/jilalapuzveneracion/"
-target="_blank"
-class="hire-btn mobile-hire"
->
-Hire Me
-</a>
-
-</div>
 
 <main>
 
-<!-- =======================================================
-     HERO
-======================================================== -->
+<!-- HERO -->
 
 <section class="hero" id="home">
 
-<div class="decor decor-one"></div>
-<div class="decor decor-two"></div>
+    <div class="container hero-grid">
 
-<div class="container hero-grid">
+        <div>
 
-<div class="reveal">
+            <div class="eyebrow">
+                HELLO, I'M JILA
+            </div>
 
-<div class="eyebrow">
-HELLO, I'M JILA
-</div>
+            <h1>
+                Creative Design,
+                Made With Purpose.
+            </h1>
 
-<h1>
-Creative Design,
-Made With Purpose.
-</h1>
+            <p>
+                I'm Jila, a student and aspiring freelance designer
+                passionate about creating thoughtful digital experiences,
+                user interfaces, wireframes, websites, and visual designs.
+            </p>
 
-<p>
-I'm Jila, a student and aspiring freelance designer
-passionate about creating thoughtful digital experiences,
-user interfaces, wireframes, websites, and visual designs.
-</p>
+            <div class="hero-buttons">
 
-<div class="hero-buttons">
+                <a href="#portfolio" class="primary-btn">
+                    View My Work
+                </a>
 
-<a href="#portfolio" class="primary-btn">
-View My Work
-</a>
+                <a
+                    href="https://www.facebook.com/jilalapuzveneracion/"
+                    target="_blank"
+                    class="secondary-btn"
+                >
+                    Hire Me
+                </a>
 
-<a
-href="https://www.facebook.com/jilalapuzveneracion/"
-target="_blank"
-class="secondary-btn"
->
-Hire Me
-</a>
+            </div>
 
-</div>
+        </div>
 
-</div>
+        <div class="hero-visual">
 
-<div class="hero-visual reveal">
+            <img
+                class="hero-image"
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85"
+                alt="Creative workspace"
+            >
 
-<img
-class="hero-image"
-src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85"
-alt="Creative workspace"
->
+        </div>
 
-</div>
-
-</div>
+    </div>
 
 </section>
 
-<!-- =======================================================
-     ABOUT
-======================================================== -->
+
+<!-- ABOUT -->
 
 <section class="about" id="about">
 
-<div class="container about-grid">
+    <div class="container about-grid">
 
-<div class="reveal">
+        <div>
 
-<img
-class="about-photo"
-src="profile pic.jpg"
-alt="Jila profile picture"
->
+            <img
+                class="about-photo"
+                src="profile pic.jpg"
+                alt="Jila profile picture"
+            >
 
-</div>
+        </div>
 
-<div class="about-content reveal">
+        <div class="about-content">
 
-<div class="section-label">
-ABOUT ME
-</div>
+            <div class="section-label">
+                ABOUT ME
+            </div>
 
-<h2>
-Turning Ideas Into Thoughtful Designs.
-</h2>
+            <h2>
+                Turning Ideas Into Thoughtful Designs.
+            </h2>
 
-<p>
-I'm a student designer interested in UI/UX design,
-graphic design, web design, branding, and creative
-digital projects.
-</p>
+            <p>
+                I'm a student designer interested in UI/UX design,
+                graphic design, web design, branding, and creative
+                digital projects.
+            </p>
 
-<p>
-I enjoy exploring different design styles, creating
-visual concepts, and turning ideas into organized
-and meaningful designs.
-</p>
+            <p>
+                I enjoy exploring different design styles, creating
+                visual concepts, and turning ideas into organized
+                and meaningful designs.
+            </p>
 
-<p>
-I'm continuously developing my skills through academic
-projects, personal projects, design exercises, and
-hands-on experimentation.
-</p>
+            <p>
+                I'm continuously developing my skills through academic
+                projects, personal projects, design exercises, and
+                hands-on experimentation.
+            </p>
 
-<span class="about-tag">
-Student Designer
-</span>
+            <span class="about-tag">Student Designer</span>
+            <span class="about-tag">UI / UX</span>
+            <span class="about-tag">Graphic Design</span>
 
-<span class="about-tag">
-UI / UX
-</span>
+        </div>
 
-<span class="about-tag">
-Graphic Design
-</span>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
-<!-- =======================================================
-     SERVICES
-======================================================== -->
+
+<!-- SERVICES -->
 
 <section id="services">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-heading reveal">
+        <div class="section-heading">
 
-<div class="section-label">
-WHAT I DO
-</div>
+            <div class="section-label">
+                WHAT I DO
+            </div>
 
-<h2>
-Design That Connects Ideas With People.
-</h2>
+            <h2>
+                Design That Connects Ideas With People.
+            </h2>
 
-<p>
-I create thoughtful visual and digital designs
-while continuously improving my skills and
-creative process.
-</p>
+            <p>
+                I create thoughtful visual and digital designs
+                while continuously improving my skills and
+                creative process.
+            </p>
 
-</div>
+        </div>
 
-<div class="services-grid">
+        <div class="services-grid">
 
-<div class="service-card reveal">
-<div class="service-number">01</div>
-<h3>UI / Web Design</h3>
-<p>
-Clean, organized and visually engaging
-website and interface layouts.
-</p>
-</div>
+            <div class="service-card">
+                <div class="service-number">01</div>
+                <h3>UI / Web Design</h3>
+                <p>
+                    Clean, organized and visually engaging
+                    website and interface layouts.
+                </p>
+            </div>
 
-<div class="service-card reveal">
-<div class="service-number">02</div>
-<h3>UX Design</h3>
-<p>
-Exploring user needs, navigation,
-structure and usability.
-</p>
-</div>
+            <div class="service-card">
+                <div class="service-number">02</div>
+                <h3>UX Design</h3>
+                <p>
+                    Exploring user needs, navigation,
+                    structure and usability.
+                </p>
+            </div>
 
-<div class="service-card reveal">
-<div class="service-number">03</div>
-<h3>Wireframing</h3>
-<p>
-Planning website and interface structures
-before moving into visual design.
-</p>
-</div>
+            <div class="service-card">
+                <div class="service-number">03</div>
+                <h3>Wireframing</h3>
+                <p>
+                    Planning website and interface structures
+                    before moving into visual design.
+                </p>
+            </div>
 
-<div class="service-card reveal">
-<div class="service-number">04</div>
-<h3>Sitemap Planning</h3>
-<p>
-Organizing pages and navigation into a
-logical website structure.
-</p>
-</div>
+            <div class="service-card">
+                <div class="service-number">04</div>
+                <h3>Sitemap Planning</h3>
+                <p>
+                    Organizing pages and navigation into a
+                    logical website structure.
+                </p>
+            </div>
 
-<div class="service-card reveal">
-<div class="service-number">05</div>
-<h3>Graphic Design</h3>
-<p>
-Creating visual content, layouts,
-promotional graphics and digital artwork.
-</p>
-</div>
+            <div class="service-card">
+                <div class="service-number">05</div>
+                <h3>Graphic Design</h3>
+                <p>
+                    Creating visual content, layouts,
+                    promotional graphics and digital artwork.
+                </p>
+            </div>
 
-<div class="service-card reveal">
-<div class="service-number">06</div>
-<h3>Brand Identity</h3>
-<p>
-Exploring typography, colors, logos and
-consistent visual identity systems.
-</p>
-</div>
+            <div class="service-card">
+                <div class="service-number">06</div>
+                <h3>Brand Identity</h3>
+                <p>
+                    Exploring typography, colors, logos and
+                    consistent visual identity systems.
+                </p>
+            </div>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
-<!-- =======================================================
-     PORTFOLIO
-======================================================== -->
+
+<!-- PORTFOLIO -->
 
 <section class="portfolio" id="portfolio">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-heading reveal">
+        <div class="section-heading">
 
-<div class="section-label">
-SELECTED WORK
-</div>
+            <div class="section-label">
+                SELECTED WORK
+            </div>
 
-<h2>
-A Collection of My Creative Projects.
-</h2>
+            <h2>
+                A Collection of My Creative Projects.
+            </h2>
 
-<p>
-Explore my work across UI and web design,
-wireframing, UX planning, graphic design,
-branding and website projects.
-</p>
+            <p>
+                Explore my work across UI and web design,
+                wireframing, UX planning, graphic design,
+                branding and website projects.
+            </p>
 
-</div>
+        </div>
 
-<div class="filters">
+        <div class="filters">
 
-<button class="filter-btn active" data-filter="all">
-All
-</button>
+            <button class="filter-btn active" data-filter="all">
+                All
+            </button>
 
-<button class="filter-btn" data-filter="ui">
-UI / UX
-</button>
+            <button class="filter-btn" data-filter="ui">
+                UI / UX
+            </button>
 
-<button class="filter-btn" data-filter="web">
-Web Design
-</button>
+            <button class="filter-btn" data-filter="web">
+                Web Design
+            </button>
 
-<button class="filter-btn" data-filter="wireframe">
-Wireframe
-</button>
+            <button class="filter-btn" data-filter="wireframe">
+                Wireframe
+            </button>
 
-<button class="filter-btn" data-filter="graphic">
-Graphic Design
-</button>
+            <button class="filter-btn" data-filter="graphic">
+                Graphic Design
+            </button>
 
-<button class="filter-btn" data-filter="branding">
-Branding
-</button>
+            <button class="filter-btn" data-filter="branding">
+                Branding
+            </button>
 
-</div>
+        </div>
 
-<div class="portfolio-grid">
+        <div class="portfolio-grid">
 
-<article class="project-card reveal" data-category="ui">
+            <article class="project-card" data-category="ui">
 
-<img
-class="project-image"
-src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=85"
-alt="UI design project"
-loading="lazy"
->
+                <img
+                    class="project-image"
+                    src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=85"
+                    alt="UI design project"
+                    loading="lazy"
+                >
 
-<div class="project-content">
+                <div class="project-content">
 
-<div class="project-category">
-UI / WEB DESIGN
-</div>
+                    <div class="project-category">
+                        UI / WEB DESIGN
+                    </div>
 
-<h3>
-UI / Web Design 01
-</h3>
+                    <h3>UI / Web Design 01</h3>
 
-<p>
-An interface design project exploring
-typography, visual hierarchy, layout
-and digital presentation.
-</p>
+                    <p>
+                        An interface design project exploring
+                        typography, visual hierarchy, layout
+                        and digital presentation.
+                    </p>
 
-<a
-class="project-link"
-href="https://canva.link/tq7ni1kc3p9fixn"
-target="_blank"
->
-View Project
-</a>
+                    <a
+                        class="project-link"
+                        href="https://canva.link/tq7ni1kc3p9fixn"
+                        target="_blank"
+                    >
+                        View Project
+                    </a>
 
-</div>
+                </div>
 
-</article>
+            </article>
 
-<article class="project-card reveal" data-category="ui">
 
-<img
-class="project-image"
-src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1200&q=85"
-alt="Web interface design"
-loading="lazy"
->
+            <article class="project-card" data-category="ui">
 
-<div class="project-content">
+                <img
+                    class="project-image"
+                    src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1200&q=85"
+                    alt="Web interface design"
+                    loading="lazy"
+                >
 
-<div class="project-category">
-UI / WEB DESIGN
-</div>
-
-<h3>
-UI / Web Design 02
-</h3>
-
-<p>
-A digital design project exploring
-interface composition and modern
-website presentation.
-</p>
+                <div class="project-content">
 
-<a
-class="project-link"
-href="https://canva.link/ts1v6hr5a7ks4ya"
-target="_blank"
->
-View Project
-</a>
-
-</div>
-
-</article>
-
-<article class="project-card reveal" data-category="wireframe">
-
-<img
-class="project-image"
-src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
-alt="Website wireframe planning"
-loading="lazy"
->
-
-<div class="project-content">
-
-<div class="project-category">
-WIREFRAME
-</div>
-
-<h3>
-Website Wireframe
-</h3>
-
-<p>
-A planning project focused on website
-structure, content hierarchy and layout.
-</p>
-
-<a
-class="project-link"
-href="https://canva.link/lwzd959kb2vk5hd"
-target="_blank"
->
-View Project
-</a>
-
-</div>
-
-</article>
-
-<article class="project-card reveal" data-category="branding">
-
-<img
-class="project-image"
-src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=85"
-alt="Brand identity design"
-loading="lazy"
->
-
-<div class="project-content">
-
-<div class="project-category">
-PERSONAL BRAND
-</div>
-
-<h3>
-Jila Creative Studio
-</h3>
-
-<p>
-A personal creative studio concept exploring
-branding, services and creative direction.
-</p>
-
-<a
-class="project-link"
-href="https://canva.link/4qxmlnpywrnompr"
-target="_blank"
->
-Explore Project
-</a>
-
-</div>
-
-</article>
-
-<article class="project-card reveal" data-category="graphic">
-
-<img
-class="project-image"
-src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1200&q=85"
-alt="Graphic design project"
-loading="lazy"
->
-
-<div class="project-content">
-
-<div class="project-category">
-GRAPHIC DESIGN
-</div>
-
-<h3>
-Graphic Design 01
-</h3>
-
-<p>
-A graphic design project exploring
-composition, typography and visual
-communication.
-</p>
+                    <div class="project-category">
+                        UI / WEB DESIGN
+                    </div>
 
-<a
-class="project-link"
-href="https://canva.link/nk6qgroagy8a6ov"
-target="_blank"
->
-View Project
-</a>
-
-</div>
-
-</article>
-
-<article class="project-card reveal" data-category="graphic">
-
-<img
-class="project-image"
-src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=85"
-alt="Creative graphic design"
-loading="lazy"
->
-
-<div class="project-content">
+                    <h3>UI / Web Design 02</h3>
 
-<div class="project-category">
-GRAPHIC DESIGN
-</div>
-
-<h3>
-Graphic Design 02
-</h3>
-
-<p>
-A collection exploring visual composition,
-typography, layout and creative direction.
-</p>
+                    <p>
+                        A digital design project exploring
+                        interface composition and modern
+                        website presentation.
+                    </p>
 
-<a
-class="project-link"
-href="https://canva.link/584a0huj9e4ypda"
-target="_blank"
->
-View Project
-</a>
-
-</div>
-
-</article>
-
-<article class="project-card reveal" data-category="graphic">
-
-<img
-class="project-image"
-src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=1200&q=85"
-alt="Digital graphic artwork"
-loading="lazy"
->
-
-<div class="project-content">
-
-<div class="project-category">
-GRAPHIC DESIGN
-</div>
-
-<h3>
-Graphic Design 03
-</h3>
-
-<p>
-A creative project demonstrating experimentation
-with hierarchy, typography and composition.
-</p>
-
-<a
-class="project-link"
-href="https://canva.link/7hd5rj56fw6e4ev"
-target="_blank"
->
-View Project
-</a>
-
-</div>
-
-</article>
-
-<article class="project-card reveal" data-category="wireframe">
-
-<img
-class="project-image"
-src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=85"
-alt="Website planning and sitemap"
-loading="lazy"
->
-
-<div class="project-content">
-
-<div class="project-category">
-UX PLANNING
-</div>
-
-<h3>
-Website Sitemap
-</h3>
-
-<p>
-A sitemap project demonstrating how website
-pages and content can be logically organized.
-</p>
-
-<a
-class="project-link"
-href="https://canva.link/ga6ppcj1smsmpnk"
-target="_blank"
->
-View Project
-</a>
-
-</div>
-
-</article>
-
-<article class="project-card featured reveal" data-category="web">
-
-<img
-class="project-image"
-src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=85"
-alt="Cafe website project"
-loading="lazy"
->
-
-<div class="project-content">
-
-<div class="project-category">
-WEB DESIGN
-</div>
-
-<h3>
-Drip Café — Dingalan
-</h3>
-
-<p>
-A café website project created to explore
-modern web design, content organization,
-visual hierarchy and website presentation.
-</p>
-
-<a
-class="project-link"
-href="https://jvener.my.canva.site/drip-cafe-dingalan"
-target="_blank"
->
-View Website
-</a>
-
-</div>
-
-</article>
-
-<article class="project-card reveal" data-category="web">
-
-<img
-class="project-image"
-src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1200&q=85"
-alt="Salon website concept"
-loading="lazy"
->
-
-<div class="project-content">
-
-<div class="project-category">
-WEB DESIGN
-</div>
-
-<h3>
-Sofia Salon Sample Website
-</h3>
-
-<p>
-A sample salon website exploring structure,
-navigation, service organization and modern
-visual presentation.
-</p>
-
-<a
-class="project-link"
-href="https://sofiasalonsampleweb.lovable.app/"
-target="_blank"
->
-View Website
-</a>
-
-</div>
-
-</article>
-
-<article class="project-card reveal" data-category="web">
-
-<img
-class="project-image"
-src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=85"
-alt="Web design assignment"
-loading="lazy"
->
-
-<div class="project-content">
-
-<div class="project-category">
-WEB DESIGN
-</div>
-
-<h3>
-Web Design Assignment
-</h3>
-
-<p>
-An academic website design exercise created
-to practice structure, navigation and visual
-presentation.
-</p>
-
-<a
-class="project-link"
-href="https://webdesignappassignmentpurposesonly.lovable.app/"
-target="_blank"
->
-View Website
-</a>
-
-</div>
-
-</article>
-
-</div>
-
-</div>
+                    <a
+                        class="project-link"
+                        href="https://canva.link/ts1v6hr5a7ks4ya"
+                        target="_blank"
+                    >
+                        View Project
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-card" data-category="wireframe">
+
+                <img
+                    class="project-image"
+                    src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
+                    alt="Website wireframe planning"
+                    loading="lazy"
+                >
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        WIREFRAME
+                    </div>
+
+                    <h3>Website Wireframe</h3>
+
+                    <p>
+                        A planning project focused on website
+                        structure, content hierarchy and layout.
+                    </p>
+
+                    <a
+                        class="project-link"
+                        href="https://canva.link/lwzd959kb2vk5hd"
+                        target="_blank"
+                    >
+                        View Project
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-card" data-category="branding">
+
+                <img
+                    class="project-image"
+                    src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=85"
+                    alt="Brand identity design"
+                    loading="lazy"
+                >
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        PERSONAL BRAND
+                    </div>
+
+                    <h3>Jila Creative Studio</h3>
+
+                    <p>
+                        A personal creative studio concept exploring
+                        branding, services and creative direction.
+                    </p>
+
+                    <a
+                        class="project-link"
+                        href="https://canva.link/4qxmlnpywrnompr"
+                        target="_blank"
+                    >
+                        Explore Project
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-card" data-category="graphic">
+
+                <img
+                    class="project-image"
+                    src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1200&q=85"
+                    alt="Graphic design project"
+                    loading="lazy"
+                >
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        GRAPHIC DESIGN
+                    </div>
+
+                    <h3>Graphic Design 01</h3>
+
+                    <p>
+                        A graphic design project exploring
+                        composition, typography and visual
+                        communication.
+                    </p>
+
+                    <a
+                        class="project-link"
+                        href="https://canva.link/nk6qgroagy8a6ov"
+                        target="_blank"
+                    >
+                        View Project
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-card" data-category="graphic">
+
+                <img
+                    class="project-image"
+                    src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=85"
+                    alt="Creative graphic design"
+                    loading="lazy"
+                >
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        GRAPHIC DESIGN
+                    </div>
+
+                    <h3>Graphic Design 02</h3>
+
+                    <p>
+                        A collection exploring visual composition,
+                        typography, layout and creative direction.
+                    </p>
+
+                    <a
+                        class="project-link"
+                        href="https://canva.link/584a0huj9e4ypda"
+                        target="_blank"
+                    >
+                        View Project
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-card" data-category="graphic">
+
+                <img
+                    class="project-image"
+                    src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=1200&q=85"
+                    alt="Digital graphic artwork"
+                    loading="lazy"
+                >
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        GRAPHIC DESIGN
+                    </div>
+
+                    <h3>Graphic Design 03</h3>
+
+                    <p>
+                        A creative project demonstrating experimentation
+                        with hierarchy, typography and composition.
+                    </p>
+
+                    <a
+                        class="project-link"
+                        href="https://canva.link/7hd5rj56fw6e4ev"
+                        target="_blank"
+                    >
+                        View Project
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-card" data-category="wireframe">
+
+                <img
+                    class="project-image"
+                    src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=85"
+                    alt="Website planning and sitemap"
+                    loading="lazy"
+                >
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        UX PLANNING
+                    </div>
+
+                    <h3>Website Sitemap</h3>
+
+                    <p>
+                        A sitemap project demonstrating how website
+                        pages and content can be logically organized.
+                    </p>
+
+                    <a
+                        class="project-link"
+                        href="https://canva.link/ga6ppcj1smsmpnk"
+                        target="_blank"
+                    >
+                        View Project
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-card featured" data-category="web">
+
+                <img
+                    class="project-image"
+                    src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=85"
+                    alt="Cafe website project"
+                    loading="lazy"
+                >
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        WEB DESIGN
+                    </div>
+
+                    <h3>Drip Café — Dingalan</h3>
+
+                    <p>
+                        A café website project created to explore
+                        modern web design, content organization,
+                        visual hierarchy and website presentation.
+                    </p>
+
+                    <a
+                        class="project-link"
+                        href="https://jvener.my.canva.site/drip-cafe-dingalan"
+                        target="_blank"
+                    >
+                        View Website
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-card" data-category="web">
+
+                <img
+                    class="project-image"
+                    src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1200&q=85"
+                    alt="Salon website concept"
+                    loading="lazy"
+                >
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        WEB DESIGN
+                    </div>
+
+                    <h3>Sofia Salon Sample Website</h3>
+
+                    <p>
+                        A sample salon website exploring structure,
+                        navigation, service organization and modern
+                        visual presentation.
+                    </p>
+
+                    <a
+                        class="project-link"
+                        href="https://sofiasalonsampleweb.lovable.app/"
+                        target="_blank"
+                    >
+                        View Website
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-card" data-category="web">
+
+                <img
+                    class="project-image"
+                    src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=85"
+                    alt="Web design assignment"
+                    loading="lazy"
+                >
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        WEB DESIGN
+                    </div>
+
+                    <h3>Web Design Assignment</h3>
+
+                    <p>
+                        An academic website design exercise created
+                        to practice structure, navigation and visual
+                        presentation.
+                    </p>
+
+                    <a
+                        class="project-link"
+                        href="https://webdesignappassignmentpurposesonly.lovable.app/"
+                        target="_blank"
+                    >
+                        View Website
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
 
 </section>
 
-<!-- =======================================================
-     PROCESS
-======================================================== -->
+
+<!-- PROCESS -->
 
 <section>
 
-<div class="container">
+    <div class="container">
 
-<div class="section-heading reveal">
+        <div class="section-heading">
 
-<div class="section-label">
-MY PROCESS
-</div>
+            <div class="section-label">
+                MY PROCESS
+            </div>
 
-<h2>
-From Idea To Design.
-</h2>
+            <h2>
+                From Idea To Design.
+            </h2>
 
-</div>
+        </div>
 
-<div class="process-grid">
+        <div class="process-grid">
 
-<div class="process-item reveal">
-<div class="process-number">01</div>
-<h3>Discover</h3>
-<p>
-Understand the purpose, audience,
-goals and requirements.
-</p>
-</div>
+            <div class="process-item">
+                <div class="process-number">01</div>
+                <h3>Discover</h3>
+                <p>
+                    Understand the purpose, audience,
+                    goals and requirements.
+                </p>
+            </div>
 
-<div class="process-item reveal">
-<div class="process-number">02</div>
-<h3>Plan</h3>
-<p>
-Organize content, structure,
-navigation and visual direction.
-</p>
-</div>
+            <div class="process-item">
+                <div class="process-number">02</div>
+                <h3>Plan</h3>
+                <p>
+                    Organize content, structure,
+                    navigation and visual direction.
+                </p>
+            </div>
 
-<div class="process-item reveal">
-<div class="process-number">03</div>
-<h3>Design</h3>
-<p>
-Create layouts, interfaces,
-typography and visual elements.
-</p>
-</div>
+            <div class="process-item">
+                <div class="process-number">03</div>
+                <h3>Design</h3>
+                <p>
+                    Create layouts, interfaces,
+                    typography and visual elements.
+                </p>
+            </div>
 
-<div class="process-item reveal">
-<div class="process-number">04</div>
-<h3>Refine</h3>
-<p>
-Review, improve and prepare
-the final design.
-</p>
-</div>
+            <div class="process-item">
+                <div class="process-number">04</div>
+                <h3>Refine</h3>
+                <p>
+                    Review, improve and prepare
+                    the final design.
+                </p>
+            </div>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
-<!-- =======================================================
-     STUDIO
-======================================================== -->
+
+<!-- JILA CREATIVE STUDIO -->
 
 <section class="studio">
 
-<div class="container reveal">
+    <div class="container">
 
-<div class="section-label">
-PERSONAL CREATIVE STUDIO
-</div>
+        <div class="section-label">
+            PERSONAL CREATIVE STUDIO
+        </div>
 
-<h2>
-Jila Creative Studio
-</h2>
+        <h2>
+            Jila Creative Studio
+        </h2>
 
-<p>
-Jila Creative Studio is my personal design concept
-where I explore creative services across branding,
-graphic design, UI/UX, web design and digital content.
-</p>
+        <p>
+            Jila Creative Studio is my personal design concept
+            where I explore creative services across branding,
+            graphic design, UI/UX, web design and digital content.
+        </p>
 
-<div class="studio-services">
+        <div class="studio-services">
 
-<span class="studio-tag">Brand Identity</span>
-<span class="studio-tag">Graphic Design</span>
-<span class="studio-tag">UI / UX</span>
-<span class="studio-tag">Web Design</span>
-<span class="studio-tag">Canva Design</span>
+            <span class="studio-tag">Brand Identity</span>
+            <span class="studio-tag">Graphic Design</span>
+            <span class="studio-tag">UI / UX</span>
+            <span class="studio-tag">Web Design</span>
+            <span class="studio-tag">Canva Design</span>
 
-</div>
+        </div>
 
-<a
-href="https://canva.link/4qxmlnpywrnompr"
-target="_blank"
-class="primary-btn"
->
-Explore Studio
-</a>
+        <a
+            href="https://canva.link/4qxmlnpywrnompr"
+            target="_blank"
+            class="primary-btn"
+        >
+            Explore Studio
+        </a>
 
-</div>
+    </div>
 
 </section>
 
-<!-- =======================================================
-     SKILLS
-======================================================== -->
+
+<!-- SKILLS -->
 
 <section class="skills">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-heading reveal">
+        <div class="section-heading">
 
-<div class="section-label">
-SKILLS
-</div>
+            <div class="section-label">
+                SKILLS
+            </div>
 
-<h2>
-What I'm Learning & Creating.
-</h2>
+            <h2>
+                What I'm Learning & Creating.
+            </h2>
 
-</div>
+        </div>
 
-<div class="skills-grid">
+        <div class="skills-grid">
 
-<span class="skill">UI Design</span>
-<span class="skill">UX Design</span>
-<span class="skill">Wireframing</span>
-<span class="skill">Sitemap Planning</span>
-<span class="skill">Graphic Design</span>
-<span class="skill">Web Design</span>
-<span class="skill">Brand Identity</span>
-<span class="skill">Mockup Design</span>
-<span class="skill">Canva Design</span>
-<span class="skill">Digital Design</span>
+            <span class="skill">UI Design</span>
+            <span class="skill">UX Design</span>
+            <span class="skill">Wireframing</span>
+            <span class="skill">Sitemap Planning</span>
+            <span class="skill">Graphic Design</span>
+            <span class="skill">Web Design</span>
+            <span class="skill">Brand Identity</span>
+            <span class="skill">Mockup Design</span>
+            <span class="skill">Canva Design</span>
+            <span class="skill">Digital Design</span>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
-<!-- =======================================================
-     BLOG
-======================================================== -->
+
+<!-- BLOG -->
 
 <section id="blog">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-heading reveal">
+        <div class="section-heading">
 
-<div class="section-label">
-BLOG
-</div>
+            <div class="section-label">
+                BLOG
+            </div>
 
-<h2>
-Notes, Ideas & Inspiration.
-</h2>
+            <h2>
+                Notes, Ideas & Inspiration.
+            </h2>
 
-<p>
-A space where I can share design tips,
-things I'm learning, creative experiments
-and lessons from my design journey.
-</p>
+            <p>
+                A space where I can share design tips,
+                things I'm learning, creative experiments
+                and lessons from my design journey.
+            </p>
 
-</div>
+        </div>
 
-<div class="blog-grid">
+        <div class="blog-grid">
 
-<article class="blog-card reveal">
+            <article class="blog-card">
 
-<div class="blog-number">01</div>
+                <div class="blog-number">01</div>
 
-<h3>
-What I Learned From Creating My First Portfolio
-</h3>
+                <h3>
+                    What I Learned From Creating My First Portfolio
+                </h3>
 
-<p>
-Reflections and lessons from building
-a personal design portfolio.
-</p>
+                <p>
+                    Reflections and lessons from building
+                    a personal design portfolio.
+                </p>
 
-</article>
+            </article>
 
-<article class="blog-card reveal">
+            <article class="blog-card">
 
-<div class="blog-number">02</div>
+                <div class="blog-number">02</div>
 
-<h3>
-What Is The Difference Between UI And UX?
-</h3>
+                <h3>
+                    What Is The Difference Between UI And UX?
+                </h3>
 
-<p>
-Exploring the difference between
-interface design and user experience.
-</p>
+                <p>
+                    Exploring the difference between
+                    interface design and user experience.
+                </p>
 
-</article>
+            </article>
 
-<article class="blog-card reveal">
+            <article class="blog-card">
 
-<div class="blog-number">03</div>
+                <div class="blog-number">03</div>
 
-<h3>
-How I Create A Website Wireframe
-</h3>
+                <h3>
+                    How I Create A Website Wireframe
+                </h3>
 
-<p>
-A look at the planning process behind
-website structure and layout.
-</p>
+                <p>
+                    A look at the planning process behind
+                    website structure and layout.
+                </p>
 
-</article>
+            </article>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
-<!-- =======================================================
-     CONTACT
-======================================================== -->
+
+<!-- CONTACT -->
 
 <section class="contact" id="contact">
 
-<div class="container">
+    <div class="container">
 
-<div class="contact-box reveal">
+        <div class="contact-box">
 
-<div class="section-label">
-CONTACT
-</div>
+            <div class="section-label">
+                CONTACT
+            </div>
 
-<h2>
-Let's Create Something Together.
-</h2>
+            <h2>
+                Let's Create Something Together.
+            </h2>
 
-<p>
-Have a design idea or project in mind?
-Feel free to reach out and tell me about it.
-</p>
+            <p>
+                Have a design idea or project in mind?
+                Feel free to reach out and tell me about it.
+            </p>
 
-<div class="contact-options">
+            <div class="contact-options">
 
-<div class="contact-card">
+                <div class="contact-card">
 
-<span>
-FACEBOOK
-</span>
+                    <span>
+                        FACEBOOK
+                    </span>
 
-<a
-href="https://www.facebook.com/jilalapuzveneracion/"
-target="_blank"
->
-Message Me on Facebook
-</a>
+                    <a
+                        href="https://www.facebook.com/jilalapuzveneracion/"
+                        target="_blank"
+                    >
+                        Message Me on Facebook
+                    </a>
 
-</div>
+                </div>
 
-<div class="contact-card">
+                <div class="contact-card">
 
-<span>
-EMAIL
-</span>
+                    <span>
+                        EMAIL
+                    </span>
 
-<a href="mailto:jilalapuzveneracion@gmail.com">
-Send Me an Email
-</a>
+                    <a href="mailto:jilalapuzveneracion@gmail.com">
+                        Send Me an Email
+                    </a>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
 </main>
 
-<!-- =======================================================
-     FOOTER
-======================================================== -->
+
+<!-- FOOTER -->
 
 <footer>
 
-<div class="container">
+    <div class="container">
 
-<div class="footer-grid">
+        <div class="footer-grid">
 
-<div>
+            <div>
 
-<a href="#home" class="logo footer-logo">
+                <a
+                    href="#home"
+                    class="logo footer-logo"
+                >
 
-<span class="logo-jila">
-Jila
-</span>
+                    <span class="logo-jila">
+                        Jila
+                    </span>
 
-<span class="logo-design">
-DESIGN
-</span>
+                    <span class="logo-design">
+                        DESIGN
+                    </span>
 
-</a>
+                </a>
 
-<p class="footer-description">
-Designing with passion, creating with purpose.
-</p>
+                <p class="footer-description">
+                    Designing with passion, creating with purpose.
+                </p>
 
-</div>
+            </div>
 
-<div class="footer-column">
 
-<h4>
-NAVIGATION
-</h4>
+            <div class="footer-column">
 
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#portfolio">Portfolio</a>
-<a href="#services">Services</a>
-<a href="#blog">Blog</a>
-<a href="#contact">Contact</a>
+                <h4>
+                    NAVIGATION
+                </h4>
 
-</div>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#services">Services</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
 
-<div class="footer-column">
+            </div>
 
-<h4>
-CONTACT
-</h4>
 
-<a
-href="https://www.facebook.com/jilalapuzveneracion/"
-target="_blank"
->
-Facebook
-</a>
+            <div class="footer-column">
 
-<a href="mailto:jilalapuzveneracion@gmail.com">
-Email
-</a>
+                <h4>
+                    CONTACT
+                </h4>
 
-</div>
+                <a
+                    href="https://www.facebook.com/jilalapuzveneracion/"
+                    target="_blank"
+                >
+                    Facebook
+                </a>
 
-</div>
+                <a
+                    href="mailto:jilalapuzveneracion@gmail.com"
+                >
+                    Email
+                </a>
 
-<div class="footer-bottom">
+            </div>
 
-© 2026 Jila Design. All Rights Reserved.
+        </div>
 
-</div>
 
-</div>
+        <div class="footer-bottom">
+
+            © 2026 Jila Design. All Rights Reserved.
+
+        </div>
+
+    </div>
 
 </footer>
 
-<!-- =======================================================
-     JAVASCRIPT
-======================================================== -->
 
 <script>
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+/* MOBILE MENU */
 
 const mobileMenu = document.getElementById("mobileMenu");
 const openMenu = document.getElementById("openMenu");
@@ -2471,9 +2195,7 @@ document.querySelectorAll(".mobile-nav a").forEach(function(link) {
 });
 
 
-/* =========================================================
-   PORTFOLIO FILTER
-========================================================= */
+/* PORTFOLIO FILTER */
 
 const filterButtons =
     document.querySelectorAll(".filter-btn");
@@ -2486,7 +2208,9 @@ filterButtons.forEach(function(button) {
     button.addEventListener("click", function() {
 
         filterButtons.forEach(function(btn) {
+
             btn.classList.remove("active");
+
         });
 
         button.classList.add("active");
@@ -2506,11 +2230,6 @@ filterButtons.forEach(function(button) {
 
                 project.style.display = "";
 
-                setTimeout(function() {
-                    project.style.opacity = "1";
-                    project.style.transform = "";
-                }, 20);
-
             } else {
 
                 project.style.display = "none";
@@ -2524,9 +2243,7 @@ filterButtons.forEach(function(button) {
 });
 
 
-/* =========================================================
-   ACTIVE NAVIGATION
-========================================================= */
+/* ACTIVE NAVIGATION */
 
 const sections =
     document.querySelectorAll("section[id]");
@@ -2569,146 +2286,6 @@ window.addEventListener("scroll", function() {
     });
 
 });
-
-
-/* =========================================================
-   SCROLL PROGRESS BAR
-========================================================= */
-
-const scrollProgress =
-    document.getElementById("scrollProgress");
-
-window.addEventListener("scroll", function() {
-
-    const scrollTop =
-        window.scrollY;
-
-    const documentHeight =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
-
-    const progress =
-        (scrollTop / documentHeight) * 100;
-
-    scrollProgress.style.width =
-        progress + "%";
-
-});
-
-
-/* =========================================================
-   CURSOR GLOW
-========================================================= */
-
-const cursorGlow =
-    document.getElementById("cursorGlow");
-
-if (window.matchMedia("(pointer:fine)").matches) {
-
-    window.addEventListener("mousemove", function(e) {
-
-        cursorGlow.style.left =
-            e.clientX + "px";
-
-        cursorGlow.style.top =
-            e.clientY + "px";
-
-        cursorGlow.style.opacity = "1";
-
-    });
-
-}
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-const revealElements =
-    document.querySelectorAll(".reveal");
-
-const revealObserver =
-    new IntersectionObserver(
-        function(entries) {
-
-            entries.forEach(function(entry) {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("visible");
-
-                    revealObserver.unobserve(
-                        entry.target
-                    );
-
-                }
-
-            });
-
-        },
-        {
-            threshold: 0.12
-        }
-    );
-
-revealElements.forEach(function(element) {
-
-    revealObserver.observe(element);
-
-});
-
-
-/* =========================================================
-   SUBTLE PROJECT CARD TILT
-   DESKTOP ONLY
-========================================================= */
-
-if (window.matchMedia("(pointer:fine)").matches) {
-
-    document.querySelectorAll(".project-card")
-    .forEach(function(card) {
-
-        card.addEventListener("mousemove", function(e) {
-
-            const rect =
-                card.getBoundingClientRect();
-
-            const x =
-                e.clientX - rect.left;
-
-            const y =
-                e.clientY - rect.top;
-
-            const centerX =
-                rect.width / 2;
-
-            const centerY =
-                rect.height / 2;
-
-            const rotateX =
-                ((y - centerY) / centerY) * -2;
-
-            const rotateY =
-                ((x - centerX) / centerX) * 2;
-
-            card.style.transform =
-                "perspective(900px) rotateX(" +
-                rotateX +
-                "deg) rotateY(" +
-                rotateY +
-                "deg) translateY(-5px)";
-
-        });
-
-        card.addEventListener("mouseleave", function() {
-
-            card.style.transform = "";
-
-        });
-
-    });
-
-}
 
 </script>
 
